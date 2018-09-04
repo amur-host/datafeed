@@ -3,7 +3,7 @@ import sbt.Keys._
 
 val appConf = ConfigFactory.parseFile(new File("src/main/resources/reference.conf")).resolve().getConfig("app")
 
-organization in ThisBuild := "com.wavesplatform"
+organization in ThisBuild := "com.amurhost"
 name := "wdf"
 version := appConf.getString("version")
 scalaVersion := "2.12.1"

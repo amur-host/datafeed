@@ -1,6 +1,6 @@
-package com.wavesplatform.datafeed.model
+package com.amurhost.datafeed.model
 
-import com.wavesplatform.datafeed.utils.WavesAddress
+import com.amurhost.datafeed.utils.AmurAddress
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
 
@@ -24,7 +24,7 @@ case class Trade(amountAsset: String, priceAsset: String, timestamp: Long, id: S
 object Trade {
 
   private def setTrade(amountAsset: Option[String], priceAsset: Option[String], timestamp: Long, id: String, order1ts: Long, order2ts: Long, price: Long, amount: Long, buyer: String, seller: String, matcher: String): Trade =
-    apply(amountAsset.getOrElse("WAVES"), priceAsset.getOrElse("WAVES"), timestamp, id, (if(order1ts > order2ts) 0.toByte else 1.toByte), price, amount, WavesAddress.fromPublicKey(buyer), WavesAddress.fromPublicKey(seller), matcher)
+    apply(amountAsset.getOrElse("AMUR"), priceAsset.getOrElse("AMUR"), timestamp, id, (if(order1ts > order2ts) 0.toByte else 1.toByte), price, amount, AmurAddress.fromPublicKey(buyer), AmurAddress.fromPublicKey(seller), matcher)
 
     implicit val readTrade: Reads[Trade] = (
     (JsPath \ "order1" \ "assetPair" \ "amountAsset").readNullable[String] and

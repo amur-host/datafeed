@@ -1,8 +1,8 @@
-package com.wavesplatform.datafeed.storage
+package com.amurhost.datafeed.storage
 
 import java.io.File
 
-import com.wavesplatform.datafeed.model._
+import com.amurhost.datafeed.model._
 import org.h2.mvstore.{MVMap, MVStore}
 import scala.collection.mutable.ArrayBuffer
 import collection.JavaConverters._

@@ -1,12 +1,12 @@
-package com.wavesplatform.datafeed.utils
+package com.amurhost.datafeed.utils
 
 import scorex.crypto.hash.Blake2b256
 import scorex.crypto.hash.Keccak256
 import scorex.crypto.encode.Base58
 
-object WavesAddress {
+object AmurAddress {
 
-  var chainId: Byte = 'T'.toByte
+  var chainId: Byte = 'Q'.toByte
 
   private def hashChain(noncedSecret: Array[Byte]): Array[Byte] = Keccak256.hash(Blake2b256.hash(noncedSecret))
 

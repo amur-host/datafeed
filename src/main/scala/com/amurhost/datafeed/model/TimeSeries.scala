@@ -1,8 +1,8 @@
-package com.wavesplatform.datafeed.model
+package com.amurhost.datafeed.model
 
-import com.wavesplatform.datafeed.NodeApiWrapper
-import com.wavesplatform.datafeed.settings._
-import com.wavesplatform.datafeed.storage._
+import com.amurhost.datafeed.NodeApiWrapper
+import com.amurhost.datafeed.settings._
+import com.amurhost.datafeed.storage._
 import play.api.libs.json._
 
 import scala.collection.concurrent.TrieMap

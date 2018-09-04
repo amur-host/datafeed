@@ -1,12 +1,12 @@
-package com.wavesplatform.datafeed.api
+package com.amurhost.datafeed.api
 
-import com.wavesplatform.datafeed.settings.Constants
+import com.amurhost.datafeed.settings.Constants
 import akka.actor.ActorRef
 import akka.pattern.ask
 import akka.util.Timeout
 import play.api.libs.json.{JsNull, JsObject, JsValue, Json}
-import com.wavesplatform.datafeed.model.{TimeSeries, Trade}
-import com.wavesplatform.datafeed.settings.WDFSettings
+import com.amurhost.datafeed.model.{TimeSeries, Trade}
+import com.amurhost.datafeed.settings.WDFSettings
 
 import scala.concurrent.duration._
 import scala.concurrent.Future
@@ -38,7 +38,7 @@ case class ApiController(settings: WDFSettings, timeseries: TimeSeries, router: 
   val ErrorInvalidAddress = Json.obj("status" -> "error",
     "message" -> "Invalid address")
 
-  def getAssetId(a: String): String = if (a.toUpperCase=="WAVES") "WAVES" else if (a.length >= 2 && a.length <= 20) settings.symbols.getOrElse(a.toUpperCase, "") else a
+  def getAssetId(a: String): String = if (a.toUpperCase=="AMUR") "AMUR" else if (a.length >= 2 && a.length <= 20) settings.symbols.getOrElse(a.toUpperCase, "") else a
 
   def apiStatus: Future[JsObject] = {
       for {

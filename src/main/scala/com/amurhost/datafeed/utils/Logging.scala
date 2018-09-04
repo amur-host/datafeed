@@ -1,4 +1,4 @@
-package com.wavesplatform.datafeed.utils
+package com.amurhost.datafeed.utils
 
 import org.slf4j.{Logger, LoggerFactory}
 

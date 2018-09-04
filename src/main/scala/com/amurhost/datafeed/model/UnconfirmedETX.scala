@@ -1,4 +1,4 @@
-package com.wavesplatform.datafeed.model
+package com.amurhost.datafeed.model
 
 import play.api.libs.json._
 import scala.collection.mutable.ListBuffer

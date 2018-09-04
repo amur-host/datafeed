@@ -1,12 +1,12 @@
-package com.wavesplatform.datafeed
+package com.amurhost.datafeed
 
 import java.io.File
 
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.datafeed.model._
-import com.wavesplatform.datafeed.api._
-import com.wavesplatform.datafeed.settings._
-import com.wavesplatform.datafeed.utils._
+import com.amurhost.datafeed.model._
+import com.amurhost.datafeed.api._
+import com.amurhost.datafeed.settings._
+import com.amurhost.datafeed.utils._
 import akka.actor._
 import akka.actor.{ActorRef, ActorSystem}
 import akka.stream.scaladsl._
@@ -20,7 +20,7 @@ import scala.reflect.runtime.universe._
 import akka.stream.ActorMaterializer
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.server.Directives._
-import com.wavesplatform.datafeed.api.WebSocketSubscriber.RegisterSource
+import com.amurhost.datafeed.api.WebSocketSubscriber.RegisterSource
 
 
 class Application(as: ActorSystem, wdfSettings: WDFSettings) extends {
@@ -33,7 +33,7 @@ object Application extends Logging {
 
   def main(args: Array[String]): Unit = {
 
-    implicit val system = ActorSystem("wavesdatafeed")
+    implicit val system = ActorSystem("amurdatafeed")
     implicit val materializer = ActorMaterializer()
 
     val maybeConfigFile = for {
@@ -58,7 +58,7 @@ object Application extends Logging {
       sys.exit(1)
     }
 
-    log.info("Starting Waves Data Feed...")
+    log.info("Starting Amur Data Feed...")
 
     val application = new Application(system, settings)
 

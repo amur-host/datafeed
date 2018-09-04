@@ -1,4 +1,4 @@
-package com.wavesplatform.datafeed.api
+package com.amurhost.datafeed.api
 
 import akka.actor._
 import akka.routing.{ActorRefRoutee, AddRoutee, RemoveRoutee}

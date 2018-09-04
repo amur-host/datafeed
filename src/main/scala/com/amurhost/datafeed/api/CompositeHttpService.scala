@@ -1,4 +1,4 @@
-package com.wavesplatform.datafeed.api
+package com.amurhost.datafeed.api
 
 import scala.reflect.runtime.universe.Type
 import akka.actor.ActorSystem
@@ -8,7 +8,7 @@ import akka.http.scaladsl.model.headers._
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.{Directive0, RejectionHandler, ValidationRejection}
 import akka.stream.ActorMaterializer
-import com.wavesplatform.datafeed.settings.WDFSettings
+import com.amurhost.datafeed.settings.WDFSettings
 
 case class CompositeHttpService(system: ActorSystem, apiTypes: Seq[Type], routes: Seq[RestApiRoute], settings: WDFSettings) {
 

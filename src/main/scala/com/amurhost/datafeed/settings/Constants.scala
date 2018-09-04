@@ -1,7 +1,7 @@
-package com.wavesplatform.datafeed.settings
+package com.amurhost.datafeed.settings
 
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.datafeed.utils.Logging
+import com.amurhost.datafeed.utils.Logging
 
 object Constants extends Logging {
   private val appConf = ConfigFactory.load().getConfig("app")
@@ -11,6 +11,6 @@ object Constants extends Logging {
   val Version = appConf.getString("version")
 
   val UnitsInWave = 100000000L
-  val TotalWaves = 100000000L
+  val TotalAmur = 100000000L
 
 }

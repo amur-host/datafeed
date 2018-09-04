@@ -1,4 +1,4 @@
-package com.wavesplatform.datafeed.settings
+package com.amurhost.datafeed.settings
 
 import com.typesafe.config.Config
 import net.ceedubs.ficus.Ficus._
@@ -26,7 +26,7 @@ case class WDFSettings(enable: Boolean,
 
 object WDFSettings {
 
-  val configPath: String = "waves.datafeed"
+  val configPath: String = "amur.datafeed"
 
   def fromConfig(config: Config): WDFSettings = {
 

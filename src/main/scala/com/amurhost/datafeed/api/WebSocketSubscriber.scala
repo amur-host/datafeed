@@ -1,4 +1,4 @@
-package com.wavesplatform.datafeed.api
+package com.amurhost.datafeed.api
 
 
 import akka.actor._
@@ -9,9 +9,9 @@ import akka.stream.actor.ActorPublisherMessage.Cancel
 import akka.stream.actor.ActorSubscriberMessage.OnNext
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
-import com.wavesplatform.datafeed.api._
-import com.wavesplatform.datafeed.utils._
-import com.wavesplatform.datafeed.model.TimeSeries
+import com.amurhost.datafeed.api._
+import com.amurhost.datafeed.utils._
+import com.amurhost.datafeed.model.TimeSeries
 
 import scala.util.{Failure, Success, Try}
 

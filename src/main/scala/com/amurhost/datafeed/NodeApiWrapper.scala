@@ -1,7 +1,7 @@
-package com.wavesplatform.datafeed
+package com.amurhost.datafeed
 
-import com.wavesplatform.datafeed.settings.WDFSettings
-import com.wavesplatform.datafeed.utils._
+import com.amurhost.datafeed.settings.WDFSettings
+import com.amurhost.datafeed.utils._
 import play.api.libs.json._
 import scalaj.http._
 import scala.util.{Try, Success, Failure}

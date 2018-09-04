@@ -1,27 +1,27 @@
-package com.wavesplatform.datafeed
+package com.amurhost.datafeed
 
-import com.wavesplatform.datafeed.utils.WavesAddress
-import com.wavesplatform.datafeed.model._
-import com.wavesplatform.datafeed.utils._
-import com.wavesplatform.datafeed.api._
+import com.amurhost.datafeed.utils.AmurAddress
+import com.amurhost.datafeed.model._
+import com.amurhost.datafeed.utils._
+import com.amurhost.datafeed.api._
 import akka.actor._
 import play.api.libs.json._
 import scala.collection.mutable.Queue
 
 class Synchronizer(nodeApi: NodeApiWrapper, uetx: UnconfirmedETX, timeseries: TimeSeries, router: ActorRef, matchers: List[String]) extends Actor with Logging {
 
-  val FirstMainnetBlock = 435196
-  val FirstTestnetBlock = 171000
+  val FirstMainnetBlock = 0
+  val FirstTestnetBlock = 0
 
   val addresses = scala.collection.mutable.SortedSet[String]()
 
   val mainnet: Boolean = {
     val req = nodeApi.get("/blocks/last")
-    if (req != JsNull && (req \ "generator").as[String].take(2)=="3P") true
+    if (req != JsNull && (req \ "generator").as[String].take(2)=="3L") true
     else false
   }
 
-  WavesAddress.chainId = if (mainnet) 'W'.toByte else 'T'.toByte
+  AmurAddress.chainId = if (mainnet) 'Q'.toByte else 'T'.toByte
 
   private def rotate(nodes: List[String]): List[String] = nodes.drop(1) ++ nodes.take(1)
 
@@ -54,7 +54,7 @@ class Synchronizer(nodeApi: NodeApiWrapper, uetx: UnconfirmedETX, timeseries: Ti
       }
       if (tx.keys.contains("assetId")) router ! WebSocketRouter.TMessage (tx, "asset/" + ((tx \ "assetId").validate[String] match {
         case s: JsSuccess[String] => s.get
-        case e: JsError => "WAVES"
+        case e: JsError => "AMUR"
       }) + "/" + txType)
     }
 
@@ -64,8 +64,8 @@ class Synchronizer(nodeApi: NodeApiWrapper, uetx: UnconfirmedETX, timeseries: Ti
     addresses.foreach(a => {
       try {
         val reqAddrBal = nodeApi.get("/addresses/balance/" + a)
-        val wavesBalance = if (reqAddrBal != JsNull) (reqAddrBal \ "balance").as[Long] else 0
-        var balances = Json.obj("WAVES" -> wavesBalance)
+        val amurBalance = if (reqAddrBal != JsNull) (reqAddrBal \ "balance").as[Long] else 0
+        var balances = Json.obj("AMUR" -> amurBalance)
         val reqAssetBal = nodeApi.get("/assets/balance/" + a)
         if (reqAssetBal != JsNull) {
           (reqAssetBal \ "balances").as[List[JsObject]].sortBy(a => (a \ "assetId").as[String]).foreach(asset => {
